@@ -1,0 +1,25 @@
+<div>
+    <div class="tab-pane active" id="menu">
+       <!-- <div class="photo-container text-center">
+            <a ui-sref="profile">
+                <img src="images/profile1.jpg" alt="" class="img-circle dash-profile" />
+            </a>
+        </div>
+        <div class="section-heading">Menus</div>-->
+        <ul class="nav sidebar-nav">
+            <li  ng-class="{active: $state.includes('userupload')}"><a ui-sref="userupload"><i class="
+            fa fa-upload "></i> Upload and Load User</a></li>
+            <li  ng-class="{active: $state.includes('amountloadUpload')}"><a ui-sref="amountloadUpload"><i class="
+            fa fa-upload "></i> Upload Amount</a></li>
+            <li  ng-class="{active: $state.includes('register')}"><a ui-sref="register"><i class="fa fa-bookmark-o"></i> Register Customer</a></li>
+            <li ng-class="{active: $state.includes('amountload')}"><a ui-sref="amountload"><i
+                    class="fa fa-table"></i> Amount Load</a></li>
+            <li ng-class="{active: $state.includes('amountrefund')}"><a ui-sref="amountrefund"><i
+                    class="fa fa-th-large"></i> Amount Refund</a></li>
+            <li ng-class="{active: $state.includes('getbalance')}"><a ui-sref="getbalance"><i
+                    class="fa fa-th-large"></i> Get Balance</a></li>
+             <li ng-class="{active: $state.includes('approveAmountLoad')}" ng-show="admin"><a ui-sref="approveAmountLoad"><i
+                    class="fa fa-th-large"></i> Pending Load Requests</a></li>
+        </ul>
+    </div>
+</div>

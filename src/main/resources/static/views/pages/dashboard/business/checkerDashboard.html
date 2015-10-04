@@ -1,0 +1,62 @@
+<div class="conter-wrapper" ng-controller="CheckerDashboardCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <growl-notifications>
+                <growl-notification class="growl-success fading" ng-if="success"  >Approved Successfully
+                    <a href="javascript:;" ng-click="$growlNotification.remove()" class="close"><i class="fa fa-times"></i></a>
+                </growl-notification>
+
+                <growl-notification class="growl-error fading" ng-if="failure"> {{message}}
+                    <a href="javascript:;" ng-click="$growlNotification.remove()" class="close"><i class="fa fa-times"></i></a>
+                </growl-notification>
+            </growl-notifications>
+        </div>
+      
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Load Request
+                        <div class="panel-control pull-right">
+                            <a class="panelButton"><i class="fa fa-refresh"></i></a>
+                            <a class="panelButton"><i class="fa fa-minus"></i></a>
+                            <a class="panelButton"><i class="fa fa-remove"></i></a>
+                        </div>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Total Load Amount</th>
+                            <th>Status</th>
+                            <th>Import File</th>
+                            <th>Success File</th>
+                            <th>Failure File</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="parentMakerLoadRequest in parentMakerLoadRequests">
+                       		<td>{{$index}}</td>
+                       		<td style="display:none">{{parentMakerLoadRequest.id}}</td>
+                            <td>{{ parentMakerLoadRequest.totalLoadAmount}}</a></td>
+                            <td>{{parentMakerLoadRequest.requestStatus}}</td>
+                            <td><a ng-href="services/getFile?filePath={{parentMakerLoadRequest.importFileName}}">Download</a></td>
+                            <td><a ng-href="services/getFile?filePath={{parentMakerLoadRequest.successFileName}}">Download</a></td>
+                            <td><a ng-href="services/getFile?filePath={{parentMakerLoadRequest.errorFileName}}">Download</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <pagination
+                            ng-model="currentPage"
+                            total-items="totalElements"
+                            max-size="maxSize"
+                            boundary-links="true">
+                    </pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,61 @@
+<div class="conter-wrapper" ng-controller="AmountRefundCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Amount Refund
+                        <div class="panel-control pull-right">
+                            <a class="panelButton"><i class="fa fa-refresh"></i></a> <a
+                                class="panelButton"><i class="fa fa-minus"></i></a> <a
+                                class="panelButton"><i class="fa fa-remove"></i></a>
+                        </div>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" ng-submit="submit()">
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="amountRefund.fromEntityId"
+                                       id="fromEntityId"
+                                       placeholder="Customer Entity Id" required>
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="amountRefund.toEntityId"
+                                       placeholder="Merchant Id"
+                                       id="toEntityId"
+                                       required>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="number" min="0" class="form-control" ng-model="amountRefund.amount"
+                                       placeholder="Amount" id="amount"
+                                       required>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="amountRefund.description"
+                                       placeholder="Description" id="description"
+                                       required>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                &nbsp;
+                            </div>
+                        </div>
+                    </form>
+                    <growl-notifications>
+                        <growl-notification class="growl-success fading" ng-if="success"  >{{message}}
+                            <a href="javascript:;" ng-click="$growlNotification.remove()" class="close"><i class="fa fa-times"></i></a>
+                        </growl-notification>
+
+                        <growl-notification class="growl-error fading" ng-if="failure"> {{message}}
+                            <a href="javascript:;" ng-click="$growlNotification.remove()" class="close"><i class="fa fa-times"></i></a>
+                        </growl-notification>
+                    </growl-notifications>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
